@@ -1,0 +1,28 @@
+{% extends 'core/base.html'%}
+{% block content  %}
+
+<div class ="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
+  <h2 class="mb-12 text-2xl text-center"><strong> Reservations </strong> </h2>
+    {% for reservations in reservations %}
+    <tr>
+      <p class = "text-gray-500 mt-6"> <strong> User: {{ reservations.user }}</strong></p>
+      <p class = "text-gray-500"> <strong> Reservation ID: {{ reservations.id }}</strong></p>
+      <p class = "text-gray-500"> <strong> Car: {{ reservations.car }} <strong></p>
+      <p class = "text-gray-500"><strong> Start date:{{ reservations.start_date }}</strong></p>
+      <p class = "text-gray-500 mb-6"><strong> end date: {{ reservations.end_date }}</strong></p>
+      <a href="{% url 'item:admin_dele_res' reservations.id %}" class=" px-9 p-3 text-lg font-demibold bg-teal-500 text-white rounded-xl hover:bg-red-700 mt-6 mb-6">Cancel</a>
+
+      
+    </tr>
+    {% endfor %}
+  </div>
+
+<div class ="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
+  <h2  class="mb-12 text-2xl text-center"> <strong>List of users </strong></h2>
+  <tr>
+    {% for users in users %}
+    <p class = "text-gray-500 mb-6"><strong>{{ users.username }}</strong></p>
+    {% endfor %}
+  </tr>
+</div>
+  {% endblock  %}

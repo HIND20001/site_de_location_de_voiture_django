@@ -1,0 +1,31 @@
+{%extends 'core/base.html'%}
+{% block title %}{{ cars.make }} {{cars.model}} Resevation{% endblock %} 
+{% block content %}
+<div class ="grid grid-cols-5 gap-6">
+  <div class = "col-span-3">
+  <img src = {{cars.image.url}} class="rounded-xl">
+  </div>
+
+  <div class = "col-span-2 p-9 bg-gray-200 rounded-xl">
+    <form method="post">
+      <h1 class="mb-6 text-3xl"><strong>Reserve {{ cars.make }} {{ cars.model }}</strong></h1>  
+      <p>Price: {{ cars.rent_price }}/day</p> 
+      {% csrf_token %}
+      {{ form.as_p }}
+      {% if form.errors %}
+    <div class="col-span-2 p-9 bg-gray-200 rounded-xl">
+        <ul>
+            {% for field_errors in form.errors.values %}
+                {% for error in field_errors %}
+                    <li class="mb-6 text-3xl text">{{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+      <button class="m-6 px-9 p-3 text-lg font-demibold bg-teal-500 text-white rounded-xl hover:bg-red-700" type="submit">Submit </button>
+    </form>
+  </div>  
+</div>
+
+{% endblock %}

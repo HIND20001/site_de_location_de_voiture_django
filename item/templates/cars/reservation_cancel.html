@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<h1>Cancel Reservation</h1>
+<div class ="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
+    <p class = "text-red-500"><strong>Are you sure you want to Cancel this reservation?</Strong>
+    <ul>
+    <li class = "py-2 px-2 ">Car: {{ reservation.car }}</li>
+    <li class = "py-2 px-2">Start date: {{ reservation.start_date }}</li>
+    <li class = "py-2 px-2">End date: {{ reservation.end_date }}</li>
+    </ul>
+ 
+  <form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ request.path }}">
+    <button class="m-6 px-9 p-3 text-lg font-demibold bg-teal-500 text-white rounded-xl hover:bg-red-700" type="submit">Submit </button>
+  </form>
+</div>
+
+{% endblock %}
