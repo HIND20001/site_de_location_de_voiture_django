@@ -36,7 +36,7 @@
                        Gérez les voitures en ajoutant, modifiant ou supprimant des modèles de voitures.
                        Gérez les réservations en visualisant les réservations actuelles et passées, en les modifiant ou en les supprimant.
                        Gérez les utilisateurs en ajoutant, modifiant ou supprimant
-#5-Configuration :
+# 5-Configuration :
               SECRET_KEY: clé secrète utilisée par Django pour les fonctions de sécurité, telle que la gestion des sessions et des cookies. Vous pouvez générer une                           nouvelle clé avec la commande python -c "import secrets; print(secrets.token_hex(24))".
               DEBUG: spécifie si le mode de débogage est activé ou non. Si vous déployez cette application en production, vous devriez désactiver le mode de débogage                        en définissant cette variable sur False.
              DATABASE_URL: URL de la base de données. Vous pouvez utiliser une base de données SQLite pour les tests et le développement, mais vous devriez utiliser                           une base de données plus robuste, telle que PostgreSQL ou MySQL, pour la production.
